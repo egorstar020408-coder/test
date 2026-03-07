@@ -470,7 +470,7 @@
 
     .final-copy {
       position: absolute;
-      top: 0;
+      top: 150px;
       left: 50%;
       transform: translateX(-50%);
       width: min(760px, calc(100% - 40px));
@@ -481,7 +481,101 @@
       border-radius: 24px;
       box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
+      z-index: 3;
     }
+
+    .watercolor-tulips {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(360px, 72vw);
+      height: 240px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.95;
+    }
+
+    .tulip-flower {
+      position: absolute;
+      width: 54px;
+      height: 68px;
+      background: linear-gradient(180deg, #b783f0 0%, #9b68dd 62%, #8657c8 100%);
+      border-radius: 60% 60% 48% 48% / 72% 72% 34% 34%;
+      box-shadow: inset 6px 0 0 rgba(255,255,255,0.22), inset -5px 0 0 rgba(121, 78, 180, 0.18);
+      animation: bloomFloat 7s ease-in-out infinite;
+      filter: drop-shadow(0 8px 10px rgba(119, 82, 172, 0.12));
+    }
+
+    .tulip-flower::before,
+    .tulip-flower::after {
+      content: "";
+      position: absolute;
+      bottom: 38px;
+      width: 20px;
+      height: 24px;
+      background: inherit;
+      border-radius: 60% 60% 10% 10%;
+    }
+
+    .tulip-flower::before {
+      left: 4px;
+      transform: rotate(-24deg);
+    }
+
+    .tulip-flower::after {
+      right: 4px;
+      transform: rotate(24deg);
+    }
+
+    .flower-1 { left: 42px; top: 46px; transform: rotate(-14deg); }
+    .flower-2 { left: 150px; top: 10px; width: 58px; height: 74px; transform: rotate(0deg); animation-delay: .8s; }
+    .flower-3 { left: 258px; top: 42px; transform: rotate(14deg); animation-delay: 1.4s; }
+
+    .tulip-stem {
+      position: absolute;
+      width: 4px;
+      background: linear-gradient(180deg, #457a35, #2f6325);
+      border-radius: 999px;
+      transform-origin: top center;
+      box-shadow: 0 0 0 1px rgba(54, 98, 44, 0.02);
+    }
+
+    .stem-1 { height: 132px; left: 76px; top: 96px; transform: rotate(10deg); }
+    .stem-2 { height: 154px; left: 178px; top: 72px; transform: rotate(1deg); }
+    .stem-3 { height: 136px; left: 288px; top: 96px; transform: rotate(-10deg); }
+
+    .leaf {
+      position: absolute;
+      width: 18px;
+      height: 120px;
+      background: linear-gradient(180deg, #4f8f3f 0%, #316b29 100%);
+      border-radius: 80% 20% 80% 20% / 100% 20% 80% 0%;
+      transform-origin: bottom center;
+      filter: drop-shadow(0 4px 4px rgba(70, 120, 60, 0.12));
+      opacity: 0.98;
+    }
+
+    .leaf::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 10px;
+      width: 2px;
+      background: rgba(230, 255, 230, 0.18);
+      border-radius: 999px;
+    }
+
+    .leaf-1 { left: 34px; top: 114px; height: 102px; transform: rotate(-28deg); }
+    .leaf-2 { left: 66px; top: 106px; height: 128px; transform: rotate(-12deg); }
+    .leaf-3 { left: 104px; top: 116px; height: 118px; transform: rotate(12deg); }
+    .leaf-4 { left: 138px; top: 102px; height: 136px; transform: rotate(-4deg); }
+    .leaf-5 { left: 170px; top: 108px; height: 132px; transform: rotate(8deg); }
+    .leaf-6 { left: 204px; top: 110px; height: 126px; transform: rotate(-10deg); }
+    .leaf-7 { left: 236px; top: 104px; height: 136px; transform: rotate(6deg); }
+    .leaf-8 { left: 270px; top: 114px; height: 122px; transform: rotate(-8deg); }
+    .leaf-9 { left: 300px; top: 112px; height: 108px; transform: rotate(16deg); }
 
     .final-copy h3 {
       font-size: clamp(1.4rem, 3vw, 2.1rem);
@@ -557,6 +651,13 @@
       50% { transform: translateY(-16px) scale(1.08); opacity: .7; }
     }
 
+    @keyframes bloomFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+      50% { transform: translateY(-16px) scale(1.08); opacity: .7; }
+    }
+
     @media (max-width: 960px) {
       .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .final-copy { top: 10px; }
@@ -567,7 +668,23 @@
       .cards-grid { grid-template-columns: 1fr; }
       .flip-card, .flip-inner { min-height: 310px; }
       .section { padding-bottom: 56px; }
-      .final-copy { position: relative; width: 100%; left: auto; transform: none; margin: 0 auto 18px; }
+      .final-copy { position: relative; top: auto; width: 100%; left: auto; transform: none; margin: 198px auto 18px; }
+      .watercolor-tulips { width: min(280px, 84vw); height: 200px; top: 10px; }
+      .flower-1 { left: 18px; top: 42px; width: 42px; height: 54px; }
+      .flower-2 { left: 110px; top: 8px; width: 46px; height: 60px; }
+      .flower-3 { left: 206px; top: 42px; width: 42px; height: 54px; }
+      .stem-1 { left: 44px; top: 82px; height: 112px; }
+      .stem-2 { left: 134px; top: 60px; height: 134px; }
+      .stem-3 { left: 232px; top: 82px; height: 114px; }
+      .leaf-1 { left: 6px; top: 98px; width: 14px; height: 86px; }
+      .leaf-2 { left: 32px; top: 90px; width: 15px; height: 100px; }
+      .leaf-3 { left: 58px; top: 100px; width: 14px; height: 96px; }
+      .leaf-4 { left: 86px; top: 90px; width: 15px; height: 108px; }
+      .leaf-5 { left: 114px; top: 96px; width: 15px; height: 102px; }
+      .leaf-6 { left: 144px; top: 98px; width: 15px; height: 98px; }
+      .leaf-7 { left: 172px; top: 90px; width: 15px; height: 108px; }
+      .leaf-8 { left: 200px; top: 98px; width: 15px; height: 98px; }
+      .leaf-9 { left: 226px; top: 100px; width: 14px; height: 90px; }
       .tulip-section { min-height: auto; padding-top: 24px; }
       .tulip-wrap { min-height: 52vh; }
       .ring-1 { width: 280px; height: 280px; bottom: 80px; }
@@ -680,6 +797,24 @@
 
     <section class="tulip-section" id="flowers">
       <div class="container tulip-wrap">
+        <div class="watercolor-tulips" aria-hidden="true">
+          <span class="tulip-flower flower-1"></span>
+          <span class="tulip-flower flower-2"></span>
+          <span class="tulip-flower flower-3"></span>
+          <span class="tulip-stem stem-1"></span>
+          <span class="tulip-stem stem-2"></span>
+          <span class="tulip-stem stem-3"></span>
+          <span class="leaf leaf-1"></span>
+          <span class="leaf leaf-2"></span>
+          <span class="leaf leaf-3"></span>
+          <span class="leaf leaf-4"></span>
+          <span class="leaf leaf-5"></span>
+          <span class="leaf leaf-6"></span>
+          <span class="leaf leaf-7"></span>
+          <span class="leaf leaf-8"></span>
+          <span class="leaf leaf-9"></span>
+        </div>
+
         <div class="final-copy">
           <h3>Для самой любимой девочки. С 8 Марта, Анфисочка.</h3>
           
